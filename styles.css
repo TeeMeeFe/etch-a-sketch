@@ -5,6 +5,7 @@
 
 body {
     background-color: antiquewhite;
+    min-height: 100vh;
 }
 
 .header-container {
@@ -20,13 +21,27 @@ body {
 }
 
 .game-box {
-    width: 480px;
-    height: 480px;
-    background-color: saddlebrown;
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 8px;
+    padding: 8px;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    background-color: saddlebrown;
+    width: 480px;
+    flex: 1 1 480px;
 }
 
 .input-container {
+    text-align: center;
     margin: 8px;
-    flex: 0;
+    flex: 1 1 0;
+}
+
+#pixel {
+    flex: 1 1 64px;
+    height: 64px;
+    border-radius: 2px;
+    background-color: gold;
 }
