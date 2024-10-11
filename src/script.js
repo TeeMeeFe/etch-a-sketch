@@ -29,17 +29,15 @@ inputContainer.addEventListener("click", (event) => {
     return el.className || el.id || el.tagName;
   };
 
-  const tagName = str(event.target)
+  const tagName = str(event.target);
 
   //console.log(`Clicked on: ${tagName}`);
 
   switch (tagName) {
     case "apply-button":
-      applyFromInputBox();
-      break;
+      return applyFromInputBox();
     case "reset-button":
-      resetChanges();
-      break;
+      return resetChanges();
   }
 });
 
