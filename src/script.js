@@ -20,20 +20,20 @@ function handler(event) {
   /*if (event.type == "mouseout" && elID == "pixel") {
     event.target.style.background = "";
   }*/
-}
+};
 
 inputContainer.addEventListener("click", (event) => {
   // Get either the class, id or tag of the HTML element
   function str(el) {
     if (!el) return "null";
     return el.className || el.id || el.tagName;
-  }
+  };
 
   const tagName = str(event.target)
 
-  console.log(`Clicked on: ${tagName}`);
+  //console.log(`Clicked on: ${tagName}`);
 
-  switch( tagName ) {
+  switch (tagName) {
     case "apply-button":
       applyFromInputBox();
       break;
@@ -45,12 +45,12 @@ inputContainer.addEventListener("click", (event) => {
 
 function applyFromInputBox() {
   const inputValue = parseInt(inputBox.value);
-  console.log(`inputValue was: ${inputValue}`);
+  //console.log(`inputValue was: ${inputValue}`);
   inputBox.value = "";
 
-  if( isNaN(inputValue) || inputValue < 6 || inputValue > 100 ) { 
+  if (isNaN(inputValue) || inputValue < 6 || inputValue > 100) {
     alert("You must insert a number between 6 and 100");
-    return ;
+    return;
   }
 
   return generateFlexPixelsFromInput(inputValue);
@@ -60,7 +60,7 @@ function generateFlexPixelsFromInput(input) {
   resetChanges();
 
   // Create new pixels
-  for( let i = 0; i < input; i++ ) {
+  for (let i = 0; i < input; i++) {
     const pixel = document.createElement("div");
     pixel.setAttribute("id", "pixel");
     gameBox.appendChild(pixel);
@@ -69,9 +69,9 @@ function generateFlexPixelsFromInput(input) {
 
 function resetChanges() {
   const pixels = Array.from(document.querySelectorAll("#pixel"));
- 
+
   // Remove any previous pixels on the box
-  for( const pixel of pixels ) {
+  for (const pixel of pixels) {
     gameBox.removeChild(pixel);
   }
-}
+};
