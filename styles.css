@@ -41,7 +41,15 @@ body {
 
 #pixel {
     flex: 1 1 64px;
+    max-width: 64px;
     height: 64px;
     border-radius: 2px;
     background-color: gold;
 }
+
+#log {
+    height: 120px;
+    width: 350px;
+    display: block;
+    box-sizing: border-box;
+  }
