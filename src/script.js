@@ -2,8 +2,6 @@
 const gameBox = document.querySelector(".game-box");
 const inputContainer = document.querySelector(".input-container");
 const inputBox = document.querySelector(".input-box");
-const applyButton = document.querySelector(".apply-button");
-const resetButton = document.querySelector(".reset-button");
 let inputValue = 6; //Default grid value that can cover the gameBox container without looking too ugly
 
 // A mouse event and its handler
@@ -79,12 +77,12 @@ function setFlexWidth(flexItems) {
   const pixels = document.querySelectorAll("#pixel");
   const container = window.getComputedStyle(gameBox);
   const containerProperties = {
-    width : container.getPropertyValue("width"),
-    padding : container.getPropertyValue("padding"),
-    gap : container.getPropertyValue("gap"),
+    width: container.getPropertyValue("width"),
+    padding: container.getPropertyValue("padding"),
+    gap: container.getPropertyValue("gap"),
   };
 
-  for( let i = 0; i < pixels.length; i++ ) {
+  for (let i = 0; i < pixels.length; i++) {
     pixels[i].style.width = ((parseInt(containerProperties.width) - (parseInt(containerProperties.padding) * 2) - (parseInt(containerProperties.gap) * (flexItems - 1))) / flexItems) + "px";
   }
 };
