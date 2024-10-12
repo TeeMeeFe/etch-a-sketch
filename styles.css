@@ -25,7 +25,7 @@ body {
     flex-wrap: wrap;
     border-radius: 8px;
     padding: 8px;
-    gap: 2px;
+    gap: 1px;
     justify-content: stretch;
     align-items: stretch;
     background-color: saddlebrown;
@@ -41,7 +41,7 @@ body {
 
 #pixel {
     flex: 1 1 auto;
-    width: 75.66px;
+    width: 64px;
     border-radius: 2px;
     background-color: gold;
 }

@@ -4,7 +4,7 @@ const inputContainer = document.querySelector(".input-container");
 const inputBox = document.querySelector(".input-box");
 const applyButton = document.querySelector(".apply-button");
 const resetButton = document.querySelector(".reset-button");
-let inputValue = 6;
+let inputValue = 6; //Default grid value that can cover the gameBox container without looking too ugly
 
 // A mouse event and its handler
 gameBox.onmouseover = gameBox.onmouseout = handler;
@@ -57,10 +57,10 @@ function applyFromInputBox() {
 
 function generateFlexPixelsFromInput(input) {
   resetChanges();
-  input = input * input; //Square this
+  const sqInput = input * input; //Square this
 
   // Create new pixels
-  for (let i = 0; i < input; i++) {
+  for (let i = 0; i < sqInput; i++) {
     const pixel = document.createElement("div");
     pixel.setAttribute("id", "pixel");
     gameBox.appendChild(pixel);
@@ -82,13 +82,16 @@ generateFlexPixelsFromInput(inputValue);
 
 // A function to set the width of a flex item according to the gap and padding of the container box
 function setFlexWidth(flexItems) {
-  const style = document.defaultView.getComputedStyle(gameBox);
-  const padding = style.getPropertyValue("padding");
-  const gap = style.getPropertyValue("gap");
-  const pixel = document.querySelector("#pixel"),
-        pixelStyle = window.getComputedStyle(pixel),
-        height = pixelStyle.getPropertyValue("height");
-        width = pixelStyle.getPropertyValue("width");
+  const pixels = document.querySelectorAll("#pixel");
+  const container = window.getComputedStyle(gameBox);
+  const containerProperties = {
+    width : container.getPropertyValue("width"),
+    padding : container.getPropertyValue("padding"),
+    gap : container.getPropertyValue("gap"),
+  };
 
-  console.log({padding, gap, height, width});
+  for( let i = 0; i < pixels.length; i++ ) {
+    pixels[i].style.width = ((parseInt(containerProperties.width) - (parseInt(containerProperties.padding) * 2) - (parseInt(containerProperties.gap) * (flexItems - 1))) / flexItems) + "px";
+    //console.log(pixels[i].style.width); // debug
+  }
 };
