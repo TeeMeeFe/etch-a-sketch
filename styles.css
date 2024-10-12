@@ -45,10 +45,3 @@ body {
     border-radius: 2px;
     background-color: gold;
 }
-
-#log {
-    height: 120px;
-    width: 350px;
-    display: block;
-    box-sizing: border-box;
-  }
