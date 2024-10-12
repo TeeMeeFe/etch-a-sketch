@@ -65,6 +65,8 @@ function generateFlexPixelsFromInput(input) {
     pixel.setAttribute("id", "pixel");
     gameBox.appendChild(pixel);
   }
+
+  setFlexWidth(input);
 };
 
 function resetChanges() {
@@ -79,4 +81,14 @@ function resetChanges() {
 generateFlexPixelsFromInput(inputValue);
 
 // A function to set the width of a flex item according to the gap and padding of the container box
+function setFlexWidth(flexItems) {
+  const style = document.defaultView.getComputedStyle(gameBox);
+  const padding = style.getPropertyValue("padding");
+  const gap = style.getPropertyValue("gap");
+  const pixel = document.querySelector("#pixel"),
+        pixelStyle = window.getComputedStyle(pixel),
+        height = pixelStyle.getPropertyValue("height");
+        width = pixelStyle.getPropertyValue("width");
 
+  console.log({padding, gap, height, width});
+};
