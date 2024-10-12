@@ -18,9 +18,6 @@ function handler(event) {
   if (event.type == "mouseover" && elID == "pixel") {
     event.target.style.background = "gray";
   }
-  /*if (event.type == "mouseout" && elID == "pixel") {
-    event.target.style.background = "";
-  }*/
 };
 
 inputContainer.addEventListener("click", (event) => {
@@ -32,8 +29,6 @@ inputContainer.addEventListener("click", (event) => {
 
   const tagName = str(event.target);
 
-  //console.log(`Clicked on: ${tagName}`);
-
   switch (tagName) {
     case "apply-button":
       return applyFromInputBox();
@@ -44,7 +39,6 @@ inputContainer.addEventListener("click", (event) => {
 
 function applyFromInputBox() {
   inputValue = parseInt(inputBox.value);
-  //console.log(`inputValue was: ${inputValue}`);
   inputBox.value = "";
 
   if (isNaN(inputValue) || inputValue < 6 || inputValue > 100) {
@@ -92,6 +86,5 @@ function setFlexWidth(flexItems) {
 
   for( let i = 0; i < pixels.length; i++ ) {
     pixels[i].style.width = ((parseInt(containerProperties.width) - (parseInt(containerProperties.padding) * 2) - (parseInt(containerProperties.gap) * (flexItems - 1))) / flexItems) + "px";
-    //console.log(pixels[i].style.width); // debug
   }
 };
