@@ -1,9 +1,10 @@
-// Query some selectors
+// Query some selectors and initialize a variable
 const gameBox = document.querySelector(".game-box");
 const inputContainer = document.querySelector(".input-container");
 const inputBox = document.querySelector(".input-box");
 const applyButton = document.querySelector(".apply-button");
 const resetButton = document.querySelector(".reset-button");
+let inputValue = 6;
 
 // A mouse event and its handler
 gameBox.onmouseover = gameBox.onmouseout = handler;
@@ -37,12 +38,12 @@ inputContainer.addEventListener("click", (event) => {
     case "apply-button":
       return applyFromInputBox();
     case "reset-button":
-      return resetChanges();
+      return generateFlexPixelsFromInput(inputValue);
   }
 });
 
 function applyFromInputBox() {
-  const inputValue = parseInt(inputBox.value);
+  inputValue = parseInt(inputBox.value);
   //console.log(`inputValue was: ${inputValue}`);
   inputBox.value = "";
 
@@ -56,6 +57,7 @@ function applyFromInputBox() {
 
 function generateFlexPixelsFromInput(input) {
   resetChanges();
+  input = input * input; //Square this
 
   // Create new pixels
   for (let i = 0; i < input; i++) {
@@ -68,8 +70,13 @@ function generateFlexPixelsFromInput(input) {
 function resetChanges() {
   const pixels = Array.from(document.querySelectorAll("#pixel"));
 
-  // Remove any previous pixels on the box
+  // Remove any pixels on the box
   for (const pixel of pixels) {
     gameBox.removeChild(pixel);
   }
 };
+
+generateFlexPixelsFromInput(inputValue);
+
+// A function to set the width of a flex item according to the gap and padding of the container box
+

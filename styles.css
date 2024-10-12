@@ -25,24 +25,23 @@ body {
     flex-wrap: wrap;
     border-radius: 8px;
     padding: 8px;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
+    gap: 2px;
+    justify-content: stretch;
+    align-items: stretch;
     background-color: saddlebrown;
     width: 480px;
-    flex: 1 1 480px;
+    height: 480px;
 }
 
 .input-container {
     text-align: center;
     margin: 8px;
-    flex: 1 1 0;
+    flex: 1 1 auto;
 }
 
 #pixel {
-    flex: 1 1 64px;
-    max-width: 64px;
-    height: 64px;
+    flex: 1 1 auto;
+    width: 75.66px;
     border-radius: 2px;
     background-color: gold;
 }
